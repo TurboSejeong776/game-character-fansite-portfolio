@@ -1,0 +1,66 @@
+{
+  "Spectro": {
+    "element": "Spectro",
+    "description": "Rover's base element and their best pick for soloing bosses.",
+    "skill": {
+      "basic": "A four-attack combo. Hold Heavy Attack during Basic Attack III to change the final strike.",
+      "heavy": "Spins a sword to the front. Good for parrying due to its rapid hitbox.",
+      "skill": "A simple strike. Normally, you don't want to proc this.",
+      "lib": "Deals a decent damage. Momentarily freezes enemies within certain range. Liberation time stop ends earlier than the skill animation. From version 2.0 onwards, Liberation also inflicts a decent number of Spectro Frazzle.",
+      "forte": "Built by landing attacks. Consumes 1 bar per use to enhance Resonance Skill. From version 2.0 onwards, the enhanced Resonance Skill also applies Spectro Frazzle and a unique effect that prevents Spectro Frazzle loss for a short duration.",
+      "notes": [
+        "Spectro Rover gains 15% Crit Rate when using Resonance Skill.",
+        "Spectro Rover can build their forte faster using their Stinger move, which can be accessed through dodge counter or holding Heavy Attack, and following through the combo.",
+        "Spectro Rover has the highest solo damage output compared to Havoc and Electro.",
+        "Spectro Rover's best weapon is Emerald of Genesis and Blazing Brilliance, while their best best Echo set is Eternal Radiance."
+      ]
+    }
+  },
+  "Havoc": {
+    "element": "Havoc",
+    "description": "Rover's second element and is the go-to pick as the main DPS of a team.",
+    "skill": {
+      "basic": "A five-attack combo. Basic Attack IV has a decent amount of rapid hitboxes for parrying.",
+      "heavy": "An simple attack.",
+      "skill": "An uppercut attack. Helps build forte a lot. Recommended to use before entering Dark Surge since it will reset Resonance Skill cooldown.",
+      "lib": "Rover's strongest nuke among all available elements as of currently. Has a lingering hitbox you can abuse to hit multiple spawning enemies in a wave-based game mode especially if you used outro immediately after you regain control of the character.",
+      "forte": "Built by landing attacks. Once full, hold Heavy Attack to access Havoc Rover's Dark Surge state; Basic Attack, Heavy Attack and Resonance Skill are changed and enhanced. Basic Attack's final strike can recovers HP on hit. Resonance Skill cooldown is reset on forte activation.",
+      "notes": [
+        "Havoc Rover deals the least solo damage output compared to Spectro and Electro.",
+        "Havoc Rover needs a double intro setup to be fully utilized due to how slow the forte is to build. Sanhua-Verina combo is recommended.",
+        "Havoc Rover's best weapon is Emerald of Genesis, while their best Echo set is Sun-sinking Eclipse."
+      ]
+    }
+  },
+  "Aero": {
+    "element": "Aero",
+    "description": "Rover's third element. The worst pick for literally everything aside from being a gofer for Aero Erosion team.",
+    "skill": {
+      "basic": "A four-attack combo. Hold Heavy Attack after Basic Attack III to gain access to mid-air forte attack.",
+      "heavy": "An simple attack.",
+      "skill": "An upper slash attack. If used in mid-air, convert the Negative Status of the target to Aero Erosion. Both ground and mid-air attack have separate cooldowns.",
+      "lib": "A simple attack.",
+      "forte": "Built by landing attacks. Has 2 bars. Rover can access unique mid-air attack called Cloudburst Dance by holding Heavy Attack after Basic Attack III, performing Basic Attack after intro, or Resonance Skill. Once fully charged, Rover gains access to a powerful ground attack you can cast by pressing Resonance Skill or pressing Basic Attack after performing a plunge, each consuming a single bar. If you switch to another character after the first attack, the second attack will follow through automatically.",
+      "notes": [
+        "Aero Rover is not suitable for combat.",
+        "Despite being an Aero Erosion character, Aero Rover cannot inflict Aero Erosion without having a team member that can inflict non-Aero Erosion Negative Status.",
+        "Aero Rover's best weapon is Emerald of Genesis, while their best Echo set is a mix of any two Aero set."
+      ]
+    }
+  },
+  "Electro": {
+    "element": "Electro",
+    "description": "Rover's fourth element. Can be used for solo run or as Electro Flare sub-DPS.",
+    "skill": {
+      "basic": "A four-attack combo. Basic Attack IV has a jumping animation which may jeopardize your positioning if you are not careful.",
+      "heavy": "Enters a guard stance. Release Heavy Attack to perform an attack. If an enemy attack hits you while performing the attack, Rover will be invulnerable, takes no damage, and the enemy will be stagnated momentarily. Has a decent hitbox for parrying and is generally a better pick for parrying due to its invulnerability effect should the parry attempt miss.",
+      "skill": "Launches grappling hook, followed by an uppercut. Useful to close distance.",
+      "lib": "A simple attack.",
+      "forte": "Built by landing attacks. Once full, press Resonance Skill to deal a decent damage, gain ATK bonus, and inflict Electro Flare on enemies hit. Alternatively, hold Resonance Skill to activate Apex Resonance state, in which Rover's Resonance Skill will act like a second Basic Attack which uses other element's attacks. Apex Resonance lasts indefinitely as long as you keep dealing damage using Resonance Skill.",
+      "notes": [
+        "Electro Rover is the second best pick for soloing bosses after Spectro Rover.",
+        "Electro Rover's best weapon is Emerald of Genesis and Blazing Brilliance, while their best Echo set is Heart of Sword Vigil."
+      ]
+    }
+  }
+}
