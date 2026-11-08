@@ -12,7 +12,7 @@ The base design concept was provided by Figma AI agent and refined by me.
 
 # How to use
 
-- Visit the site (updatelinkherelater). No login or registration required.
+- Visit the site [here](https://game-character-fansite-portfolio-nine.vercel.app/). No login or registration required.
 
 - To run locally, clone the repository, run npm install, then start the app with npm run dev. Open the localhost URL shown in the console.
 
