@@ -6,7 +6,15 @@ import { Search } from 'lucide-react';
 
 const ShowCase = () => {
   const [element, setElement] = useState<Label | 'All'>('All');
-  const [openUP, setOpenUP] = useState(false);
+  const [showAll, setShowAll] = useState(false);
+  const filterColor = [
+    { name: 'All', color: '#ffffff' },
+    { name: 'Spectro', color: 'var(--color-spectro)' },
+    { name: 'Havoc', color: 'var(--color-havoc)' },
+    { name: 'Aero', color: 'var(--color-aero)' },
+    { name: 'Electro', color: 'var(--color-electro)' },
+  ] as const;
+  const cardLimit = 4;
 
   const [searchKey, setSearchKey] = useState('');
   const normalizeSearch = searchKey.trim().toLowerCase();
@@ -19,6 +27,12 @@ const ShowCase = () => {
 
     return match && elementMatch;
   });
+
+  const visibleCard = showAll
+    ? filteredSearch
+    : filteredSearch.slice(0, cardLimit);
+  const hasMore = !showAll && filteredSearch.length > cardLimit;
+
   return (
     <main className='flex flex-col w-full min-h-full bg-[#0d0d0d] sm:gap-[24px] sm:px-[64px] sm:py-[48px]'>
       <section
@@ -36,7 +50,7 @@ const ShowCase = () => {
         </p>
         <section
           id='elementTabsSC'
-          className='flex flex-row w-full sm:h-[44px] gap-[24px] px-[0px] sm:py-[0px] items-center bg-[#0d0d0d]'
+          className='flex sm:flex-row flex-col w-full sm:h-[44px] gap-[24px] px-[0px] sm:py-[0px] items-center bg-[#0d0d0d]'
         >
           <div className='flex flex-row w-full h-[34px] border border-[#2A3737] bg-[#171717] items-center px-[8px] py-[6px] gap-[12px]'>
             <Search />
@@ -45,62 +59,58 @@ const ShowCase = () => {
               onChange={(sear) => {
                 setSearchKey(sear.target.value);
               }}
-              placeholder='......'
+              placeholder='Enter keywords...'
               className='flex w-full  text-white'
             />
           </div>
           <div className='flex flex-row w-full gap-[8px]'>
-            <button
-              className={`cursor-pointer flex flex-col w-[25%] h-[34px] sm:min-h-full hover:shadow-[inset_0_-18px_36px_-14px_#ffffff] active:shadow-[inset_0_-18px_36px_-14px_#ffffff] justify-center border border-[#2A3737] transition-shadow duration-150 sm:duration-300 ${element === 'All' ? 'shadow-[inset_0_-18px_36px_-14px_#ffffff]' : ''}`}
-              onClick={() => setElement('All')}
-            >
-              <p className='text-white text-[13px] text-center'>All</p>
-            </button>
-            <button
-              className={`cursor-pointer flex flex-col w-[25%] h-[34px] sm:min-h-full hover:shadow-[inset_0_-18px_36px_-14px_#e4f28a] active:shadow-[inset_0_-18px_36px_-14px_#e4f28a] justify-center border border-[#2A3737] transition-shadow duration-150 sm:duration-300 ${element === 'Spectro' ? 'shadow-[inset_0_-18px_36px_-14px_#e4f28a]' : ''}`}
-              onClick={() => setElement('Spectro')}
-            >
-              <p className='text-white text-[13px] text-center'>Spectro</p>
-            </button>
-            <button
-              className={`cursor-pointer flex flex-col w-[25%] h-[34px] sm:min-h-full hover:shadow-[inset_0_-18px_36px_-14px_#ff75cf] active:shadow-[inset_0_-18px_36px_-14px_#ff75cf] justify-center border border-[#2A3737] transition-shadow duration-150 sm:duration-300 ${element === 'Havoc' ? 'shadow-[inset_0_-18px_36px_-14px_#ff75cf]' : ''}`}
-              onClick={() => setElement('Havoc')}
-            >
-              <p className='text-white text-[13px] text-center'>Havoc</p>
-            </button>
-            <button
-              className={`cursor-pointer flex flex-col w-[25%] h-[34px] sm:min-h-full hover:shadow-[inset_0_-18px_36px_-14px_#85e8e1] active:shadow-[inset_0_-18px_36px_-14px_#85e8e1] justify-center border border-[#2A3737] transition-shadow duration-150 sm:duration-300 ${element === 'Aero' ? 'shadow-[inset_0_-18px_36px_-14px_#85e8e1]' : ''}`}
-              onClick={() => setElement('Aero')}
-            >
-              <p className='text-white text-[13px] text-center'>Aero</p>
-            </button>
-            <button
-              className={`cursor-pointer flex flex-col w-[25%] h-[34px] sm:min-h-full hover:shadow-[inset_0_-18px_36px_-14px_#9b79ff] active:shadow-[inset_0_-18px_36px_-14px_#9b79ff] justify-center border border-[#2A3737] transition-shadow duration-150 sm:duration-300 ${element === 'Electro' ? 'shadow-[inset_0_-18px_36px_-14px_#9b79ff]' : ''}`}
-              onClick={() => setElement('Electro')}
-            >
-              <p className='text-white text-[13px] text-center'>Electro</p>
-            </button>
+            {filterColor.map(({ name, color }) => (
+              <button
+                key={name}
+                aria-pressed={element === name}
+                onClick={() => setElement(name)}
+                style={{ '--glow': color } as React.CSSProperties}
+                className={`cursor-pointer flex flex-1 h-[34px] sm:min-h-full items-center justify-center border border-[#2A3737] text-white text-[13px] transition-shadow duration-150 sm:duration-300 hover:shadow-[inset_0_-18px_36px_-14px_var(--glow)] active:shadow-[inset_0_-18px_36px_-14px_var(--glow)] ${
+                  element === name
+                    ? 'shadow-[inset_0_-18px_36px_-14px_var(--glow)]'
+                    : ''
+                }`}
+              >
+                {name}
+              </button>
+            ))}
           </div>
         </section>
         <section
           id='renderThemVideoCardss'
-          className={`relative grid grid-cols-2 sm:grid-cols-4 w-full gap-[12px] overflow-hidden ${openUP ? 'max-h-none sm:max-h-none' : 'max-h-[360px] sm:max-h-[720px]'}`}
+          className={`relative w-full gap-[12px]`}
         >
-          {filteredSearch.map((video) => (
-            <VideoCard
-              key={video.title}
-              {...video}
-              label={video.label as Label[]}
-            />
-          ))}
-          {!openUP && (
+          {filteredSearch.length === 0 ? (
+            <div className='flex w-full h-full items-center justify-center'>
+              <p className='text-gray-400 text-[14px] text-center'>
+                No result!
+              </p>
+            </div>
+          ) : (
+            <div className='grid grid-cols-1 sm:grid-cols-4 gap-[12px] '>
+              {visibleCard.map((video) => (
+                <VideoCard
+                  key={video.title}
+                  {...video}
+                  label={video.label as Label[]}
+                />
+              ))}
+            </div>
+          )}
+
+          {hasMore && (
             <>
               <div
                 id='OFFFade'
-                className='pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-[#0d0d0d]'
+                className='pointer-events-none absolute inset-x-0 bottom-0 h-32 sm:h-48 bg-gradient-to-b from-transparent to-[#0d0d0d]'
               />
               <button
-                onClick={() => setOpenUP(true)}
+                onClick={() => setShowAll(true)}
                 className='absolute bottom-3 sm:bottom-4 left-1/2 z-10 -translate-x-1/2 flex w-[128px] border border-[#2A3737] bg-[#11191B] hover:shadow-[0_0_12px_var(--theme-accent)] text-white text-[12px] items-center justify-center transition-shadow duration-300 rounded-[8px] cursor-pointer'
               >
                 Show more

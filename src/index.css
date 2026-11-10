@@ -1,20 +1,25 @@
 @import 'tailwindcss';
 
+@theme {
+  --color-spectro: #e4f28a;
+  --color-havoc: #ff75cf;
+  --color-aero: #85e8e1;
+  --color-electro: #9b79ff;
+}
+
 [data-theme='spectro'] {
-  --theme-accent: #e4f28a;
+  --theme-accent: var(--color-spectro);
 }
-
 [data-theme='havoc'] {
-  --theme-accent: #ff75cf;
+  --theme-accent: var(--color-havoc);
 }
-
 [data-theme='aero'] {
-  --theme-accent: #85e8e1;
+  --theme-accent: var(--color-aero);
+}
+[data-theme='electro'] {
+  --theme-accent: var(--color-electro);
 }
 
-[data-theme='electro'] {
-  --theme-accent: #9b79ff;
-}
 @font-face {
   font-family: 'My Font';
   src: url('./assets/H7GBKHeavy.TTF') format('truetype');

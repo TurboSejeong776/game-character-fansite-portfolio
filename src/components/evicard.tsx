@@ -1,4 +1,5 @@
 import { Imgplhdr } from './misc/imgplhdr';
+import { Line } from './misc/line';
 
 type Eviprops = {
   no: number;
@@ -23,16 +24,20 @@ export const EviCard = (evi: Eviprops) => {
         </div>
       )}
 
-      <div className='flex flex-row min-w-0 sm:flex-3 w-full gap-[16px]'>
+      <div className='flex flex-row min-w-0 sm:flex-3 w-full h-full gap-[16px]'>
         <p className='text-[12px] text-(--theme-accent)'>{evi.no}</p>
-        <div className='flex flex-col w-full min-h-[111px] gap-[12px]'>
-          <p className='text-[22px] text-white text-left'>{evi.title}</p>
-          <p className='text-[13px] text-gray-400 text-left'>
-            {evi.description}
-          </p>
-          <div className='flex flex-col w-full'>
+        <div className='flex flex-col w-full gap-[12px]'>
+          <div className='flex flex-col w-full min-h-[111px] gap-[12px]'>
+            <p className='text-[22px] text-white text-left'>{evi.title}</p>
+            <p className='text-[13px] text-gray-400 text-left'>
+              {evi.description}
+            </p>
+          </div>
+
+          <div className='flex flex-col w-full h-full mt-auto justify-center'>
+            <Line />
             <p className='text-[9px] text-gray-400 text-left'>Source:</p>
-            <p className='text-[11px] text-gray-400 text-left leading-none'>
+            <p className='text-[11px] text-gray-400 text-left leading-0'>
               {evi.src}
             </p>
           </div>

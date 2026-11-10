@@ -5,36 +5,33 @@ import { SkillCard } from '../components/skillcard';
 const GameStat = () => {
   const [element, setElement] = useState<keyof typeof data>('Spectro');
   const sElement = data[element];
+  const filterColor = [
+    { name: 'Spectro', color: 'var(--color-spectro)' },
+    { name: 'Havoc', color: 'var(--color-havoc)' },
+    { name: 'Aero', color: 'var(--color-aero)' },
+    { name: 'Electro', color: 'var(--color-electro)' },
+  ] as const;
   return (
     <main className='flex flex-col w-full h-full bg-[#0d0d0d] sm:gap-[24px] pt-[12px] pb-[24px] sm:pb-[48px]'>
       <section
         id='elementTabs'
         className='fixed top-[176px] sm:top-[96px] z-40 flex flex-row w-full sm:h-[44px] gap-0 px-[0px] sm:py-[0px] items-center bg-[#0d0d0d]'
       >
-        <button
-          className={`cursor-pointer flex flex-col w-[25%] h-[34px] sm:min-h-full hover:shadow-[inset_0_-18px_36px_-14px_#e4f28a] active:shadow-[inset_0_-18px_36px_-14px_#e4f28a] justify-center border border-[#2A3737] transition-shadow duration-150 sm:duration-300 ${element === 'Spectro' ? 'shadow-[inset_0_-18px_36px_-14px_#e4f28a]' : ''}`}
-          onClick={() => setElement('Spectro')}
-        >
-          <p className='text-white text-[13px] text-center'>Spectro</p>
-        </button>
-        <button
-          className={`cursor-pointer flex flex-col w-[25%] h-[34px] sm:min-h-full hover:shadow-[inset_0_-18px_36px_-14px_#ff75cf] active:shadow-[inset_0_-18px_36px_-14px_#ff75cf] justify-center border border-[#2A3737] transition-shadow duration-150 sm:duration-300 ${element === 'Havoc' ? 'shadow-[inset_0_-18px_36px_-14px_#ff75cf]' : ''}`}
-          onClick={() => setElement('Havoc')}
-        >
-          <p className='text-white text-[13px] text-center'>Havoc</p>
-        </button>
-        <button
-          className={`cursor-pointer flex flex-col w-[25%] h-[34px] sm:min-h-full hover:shadow-[inset_0_-18px_36px_-14px_#85e8e1] active:shadow-[inset_0_-18px_36px_-14px_#85e8e1] justify-center border border-[#2A3737] transition-shadow duration-150 sm:duration-300 ${element === 'Aero' ? 'shadow-[inset_0_-18px_36px_-14px_#85e8e1]' : ''}`}
-          onClick={() => setElement('Aero')}
-        >
-          <p className='text-white text-[13px] text-center'>Aero</p>
-        </button>
-        <button
-          className={`cursor-pointer flex flex-col w-[25%] h-[34px] sm:min-h-full hover:shadow-[inset_0_-18px_36px_-14px_#9b79ff] active:shadow-[inset_0_-18px_36px_-14px_#9b79ff] justify-center border border-[#2A3737] transition-shadow duration-150 sm:duration-300 ${element === 'Electro' ? 'shadow-[inset_0_-18px_36px_-14px_#9b79ff]' : ''}`}
-          onClick={() => setElement('Electro')}
-        >
-          <p className='text-white text-[13px] text-center'>Electro</p>
-        </button>
+        {filterColor.map(({ name, color }) => (
+          <button
+            key={name}
+            aria-pressed={element === name}
+            onClick={() => setElement(name)}
+            style={{ '--glow': color } as React.CSSProperties}
+            className={`cursor-pointer flex flex-1 h-[34px] sm:min-h-full items-center justify-center border border-[#2A3737] text-white text-[13px] transition-shadow duration-150 sm:duration-300 hover:shadow-[inset_0_-18px_36px_-14px_var(--glow)] active:shadow-[inset_0_-18px_36px_-14px_var(--glow)] ${
+              element === name
+                ? 'shadow-[inset_0_-18px_36px_-14px_var(--glow)]'
+                : ''
+            }`}
+          >
+            {name}
+          </button>
+        ))}
       </section>
       <section
         id='lorePageTop'
