@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router';
+import { PageNameChange } from '../components/page-name-change';
 
 import { Line } from '../components/misc/line';
 import { SPLabel } from '../components/splabel';
@@ -9,6 +10,8 @@ import { ReasonCard } from '../components/reasoncard';
 
 const LandPage = () => {
   const navigate = useNavigate();
+  PageNameChange('Homepage | Rover Fansite');
+
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({
       behavior: 'smooth',

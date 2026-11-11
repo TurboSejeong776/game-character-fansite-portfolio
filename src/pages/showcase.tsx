@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { PageNameChange } from '../components/page-name-change';
+
 import { VideoCard } from '../components/videocard';
 import video from '../components/video.json';
 import { type Label } from '../components/vidtypes';
@@ -14,8 +16,10 @@ const ShowCase = () => {
     { name: 'Aero', color: 'var(--color-aero)' },
     { name: 'Electro', color: 'var(--color-electro)' },
   ] as const;
-  const cardLimit = 4;
 
+  PageNameChange('Showcase | Rover Fansite');
+
+  const cardLimit = 4;
   const [searchKey, setSearchKey] = useState('');
   const normalizeSearch = searchKey.trim().toLowerCase();
   const filteredSearch = video.filter((v) => {

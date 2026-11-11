@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { PageNameChange } from '../components/page-name-change';
+
 import { CircleAlert, ArrowBigDownDash } from 'lucide-react';
 import { Line } from '../components/misc/line';
 import { EviCard } from '../components/evicard';
@@ -7,6 +9,8 @@ const LorePage = () => {
   const [openOFF, setOpenOFF] = useState(false);
   const [defOFF, setDefOFF] = useState(false);
   const [weakOFF, setWeakOFF] = useState(false);
+
+  PageNameChange('Ability | Rover Fansite');
   return (
     <main className='flex flex-col w-full min-h-full bg-[#0d0d0d] sm:gap-[24px] sm:px-[64px] sm:py-[48px]'>
       <section

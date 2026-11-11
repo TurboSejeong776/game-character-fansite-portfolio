@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { PageNameChange } from '../components/page-name-change';
+
 import data from '../components/data.json';
 import { SkillCard } from '../components/skillcard';
 
@@ -11,6 +13,8 @@ const GameStat = () => {
     { name: 'Aero', color: 'var(--color-aero)' },
     { name: 'Electro', color: 'var(--color-electro)' },
   ] as const;
+
+  PageNameChange('Gameplay | Rover Fansite');
   return (
     <main className='flex flex-col w-full h-full bg-[#0d0d0d] sm:gap-[24px] pt-[12px] pb-[24px] sm:pb-[48px]'>
       <section
